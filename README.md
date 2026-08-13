@@ -19,3 +19,8 @@ $ gs \
   -sColorConversionStrategyForImages=CMYK \
    poster-rgb.pdf 
 ```
+
+## Wordcloud
+
+A small python script is provided to generate a wordcloud.
+ATM it can generate only PNG images. 
