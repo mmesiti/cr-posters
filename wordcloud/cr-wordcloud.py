@@ -12,7 +12,8 @@ def main():
     wc = get_wordcloud(mask=mask, weights=weights)
     recombined = recombine(wc,logo,mask)
     
-    visualize(logo,mask,recombined)
+    #visualize(logo,mask,recombined)
+    visualize(recombined)
     save(recombined, output_path)
 
 ##
@@ -41,7 +42,7 @@ def get_logo_and_mask(logo_path):
     return logo, mask 
 
 def get_wordcloud(mask,weights):
-    wc = WordCloud(background_color="white", max_words=100, mask=mask)
+    wc = WordCloud(background_color="white", max_words=len(weights), mask=mask)
     wc.generate_from_frequencies(weights)
     return wc
 
@@ -66,18 +67,19 @@ def save(fig,output_path):
 
 ###
 
-weights = {"git": 10, 
+weights = {"git": 5, 
            "git commit": 1,
            "git push": 1,
            "git stash": 1,
            "git add": 1,
            "git log": 1,
            "git bisect": 1,
-           "code reviews": 1,
-           "collaborative software development": 3,
+           "code reviews": 2,
+           "collaborative software development": 5,
            "code reuse": 1,
-           "pull request": 1,
-           "github": 5,
+           "pull request": 3,
+           "merge request": 2,
+           "github": 4,
            "gitlab": 2, 
            "issues/work items": 1, 
            "sphinx": 3, 
@@ -86,7 +88,6 @@ weights = {"git": 10,
            "test coverage": 1,
            "conda":3,
            "AI-assisted coding": 3,
-           "responsibility": 4,
            "automated testing": 3,
            "social coding": 2,
            "containers": 3,
